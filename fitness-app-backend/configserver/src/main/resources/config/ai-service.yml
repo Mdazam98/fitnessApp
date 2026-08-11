@@ -1,0 +1,37 @@
+server:
+  port: ${PORT:8083}
+spring:
+
+
+
+  data:
+  mongodb:
+    uri: ${MONGODB_URI:mongodb://localhost:27017/fitnessrecomendation}
+    database: ${MONGODB_DATABASE:fitnessrecomendation}
+
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+
+
+
+eureka:
+  client:
+    service-Url:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761/eureka/}
+  instance:
+    prefer-ip-address: true
+rabbitmq:
+  exchange:
+    name: fitness.exchange
+  queue:
+    name: avtivity.exchange
+  routing:
+    key: activity.tracking
+
+gemini:
+  api:
+    url: ${GEMINI_API_URL:https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=}
+    key: ${GEMINI_API_KEY:AQ.Ab8RN6Kdj7ZzKR_NiErnDyfqEOXMyxH5AYi4pS7m2ufef6vsXA}
